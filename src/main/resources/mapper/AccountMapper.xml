@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.dengl.sky.springboot.dao.AccountMapper" >
+    <!--驼峰命名-->
+    <parameterMap id="Account" type="cn.dengl.sky.springboot.entity.Account"/>
+    <!--f结果集-->
+    <resultMap id="BaseResultMap" type="cn.dengl.sky.springboot.entity.Account">
+        <result column="loginPwd" property="logpwd" />
+        <result column="loginName" property="logname" />
+    </resultMap>
+    <!--sql 代码片段-->
+    <sql id="Base_Column_List">
+        logpwd,logname
+    </sql>
+    <select id="findAllAccount" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from account
+    </select>
+
+    <select id="selectUserByName"  resultType="Account" parameterType="string">
+        SELECT * FROM account WHERE logname = #{name}
+    </select>
+    <!-- insert account-->
+    <insert id="addAccount" parameterType="cn.dengl.sky.springboot.entity.Account">
+        insert  into account(logname,logpwd)values (#{loginName},#{loginPwd})
+    </insert>
+
+    <!--update-->
+    <update id="updateAccount" parameterType="cn.dengl.sky.springboot.entity.Account">
+      update  account set logname=#{loginName},logpwd=#{loginPwd} where id=#{id}
+    </update>
+    <!--delete account-->
+    <delete id="deleteAccount" parameterType="int">
+        delete from account where id=#{id}
+    </delete>
+</mapper>

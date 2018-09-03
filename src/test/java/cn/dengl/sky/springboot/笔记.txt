@@ -1,0 +1,7 @@
+1.自定义属性 https://blog.csdn.net/m0_37995707/article/details/77506184
+2.乱码参考：https://blog.csdn.net/m0_37995707/article/details/77506184
+3.热部署： https://www.cnblogs.com/moonlightL/p/7891803.html
+4.多环境切换： https://www.cnblogs.com/moonlightL/p/7891803.html
+5.配置日志：同上
+6.部署：同上
+
